@@ -3,7 +3,7 @@ var SongQueueEntryView = Backbone.View.extend({
   // your code here!
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %><td><button class="up">upvote</button></td><td><button class="down">downvote</button></td></td><td><%= votes %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %><td><button class="up icon ion-arrow-up-a"></button></td><td><button class="down icon ion-arrow-down-a"></button></td></td><td><%= votes %></td>'),
 
   events: {
     'click': function() {
@@ -11,12 +11,10 @@ var SongQueueEntryView = Backbone.View.extend({
     },
     'click button.up': function(event) {
       event.stopPropagation();
-      console.log("UP BUTTON!!!!");
       this.model.upvote();
     },
     'click button.down': function(event) {
       event.stopPropagation();
-      console.log("DOWN BUTTON!!!!");
       this.model.downvote();
     },
   },

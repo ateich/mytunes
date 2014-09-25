@@ -3,7 +3,7 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %></td><td><button class="up">upvote</button></td><td><button class="down">downvote</button></td><td><%= votes %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %></td><td><button class="up icon ion-arrow-up-a"></button></td><td><button class="down icon ion-arrow-down-a"></button></td><td><%= votes %></td>'),
 
   //This is an event listener that listens for a click
   //anywhere on the library entry template showed above
@@ -16,12 +16,10 @@ var LibraryEntryView = Backbone.View.extend({
     },
     'click button.up': function(event) {
       event.stopPropagation();
-      console.log("UP BUTTON!!!!");
       this.model.upvote();
     },
     'click button.down': function(event) {
       event.stopPropagation();
-      console.log("DOWN BUTTON!!!!");
       this.model.downvote();
     },
   },
