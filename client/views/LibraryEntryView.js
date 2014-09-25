@@ -3,7 +3,7 @@ var LibraryEntryView = Backbone.View.extend({
 
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %></td>'),
 
   //This is an event listener that listens for a click
   //anywhere on the library entry template showed above
@@ -13,7 +13,7 @@ var LibraryEntryView = Backbone.View.extend({
     'click': function() {
       // console.log(this);
       this.model.enqueue();
-    }
+    },
   },
 
   render: function(){

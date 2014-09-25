@@ -10,13 +10,12 @@ var SongQueue = Songs.extend({
   playLogic: function(item){
     // debugger;
     if(this.length === 1){
-      this.playFirst(item);
+      this.playFirst(this.at(0));
     }
   },
 
   playFirst: function(item){
     this.at(0).play();
-    console.log('AHHH');
   },
 
   removeEnded: function(){
@@ -28,7 +27,12 @@ var SongQueue = Songs.extend({
   },
 
   dequeue : function(item){
+    if (item === this.at(0) && this.length > 1) {
+      this.at(1).play();
+    }
     this.remove(item);
+    //if we remove the playing item (first item)
+
   },
 
 });
