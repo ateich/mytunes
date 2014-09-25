@@ -6,6 +6,8 @@ var LibraryView = Backbone.View.extend({
   initialize: function() {
     this.render();
     this.collection.on('play', this.render, this);
+    this.collection.on('upvote', this.render, this);
+    this.collection.on('downvote', this.render, this);
   },
 
   render: function(){

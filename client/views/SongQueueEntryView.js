@@ -3,17 +3,22 @@ var SongQueueEntryView = Backbone.View.extend({
   // your code here!
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %></td>'),
+  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td><td><%= playCount %><td><button class="up">upvote</button></td><td><button class="down">downvote</button></td></td><td><%= votes %></td>'),
 
-  //This is an event listener that listens for a click
-  //anywhere on the library entry template showed above
-  //We probably need to break this down and make it more
-  //specific (clicking on the artist or title, for example)
   events: {
     'click': function() {
-      //when a queued song is clicked, remove it from queue
       this.model.dequeue();
-    }
+    },
+    'click button.up': function(event) {
+      event.stopPropagation();
+      console.log("UP BUTTON!!!!");
+      this.model.upvote();
+    },
+    'click button.down': function(event) {
+      event.stopPropagation();
+      console.log("DOWN BUTTON!!!!");
+      this.model.downvote();
+    },
   },
 
   render: function(){
